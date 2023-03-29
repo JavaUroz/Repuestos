@@ -11,12 +11,12 @@
             <Frame Margin = "10" Padding="24" CornerRadius="10">
                 <Image Source="Supplies.jpg" />
             </Frame>
-            <ScrollView>
-                <Grid>
-                    <Entry x:Name="txtIdProducto" IsVisible="False" Grid.Row="0"/>
-                    <Entry x:Name="txtCodigo" Placeholder="Código" Grid.Row="1"/>
-                    <Entry x:Name="txtDescripcion" Placeholder="Descripción" Grid.Row="2"/>                    
-                    <Entry x:Name="txtPrecio" Keyboard="Numeric" Placeholder="Precio Unitario" Grid.Row="3"/>                    
+            <ScrollView HeightRequest="600">
+                <Grid>                    
+                    <Entry x:Name="txtCodigo" Placeholder="Código" Grid.Row="0"/>
+                    <Entry x:Name="txtDescripcion" Placeholder="Descripción" Grid.Row="1"/>                    
+                    <Entry x:Name="txtPrecio" Keyboard="Numeric" Placeholder="Precio Unitario" Grid.Row="2"/>
+                    <Entry x:Name="txtIdProducto" IsVisible="False"/>
                 </Grid>
             </ScrollView>
             <Button x:Name="btnCargar" Text="Cargar respuesto" Clicked="btnCargar_Clicked" Grid.Row="9"/>

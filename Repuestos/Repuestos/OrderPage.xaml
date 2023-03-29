@@ -9,12 +9,16 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <Frame Margin = "10" Padding="24" CornerRadius="10">
-                <Image Source="Orders.png" />
+                <Image Source="Orders.png"/>
             </Frame>
-            <Entry x:Name="txtIdOrder" IsVisible="False"/>
-            <Picker x:Name="lstClientes" FontSize="18" Title="Cliente" ItemsSource="{Binding Client}" ItemDisplayBinding="{Binding RazonSocial}"/>
-            <Picker x:Name="lstProductos" FontSize="18" Title="Producto" ItemsSource="{Binding Product}" ItemDisplayBinding="{Binding DescripcionProducto}"/>
-            <Entry x:Name="txtCantidad" Placeholder="Cantidad" Keyboard="Numeric"/>
+            <ScrollView HeightRequest="500">
+                <Grid>
+                    <Entry x:Name="txtIdOrder" IsVisible="False"/>
+                    <Picker x:Name="lstClientes" FontSize="18" Title="Cliente" ItemsSource="{Binding Client}" ItemDisplayBinding="{Binding RazonSocial}" Grid.Row="0"/>
+                    <Picker x:Name="lstProductos" FontSize="18" Title="Producto" ItemsSource="{Binding Product}" ItemDisplayBinding="{Binding DescripcionProducto}" Grid.Row="1"/>
+                    <Entry x:Name="txtCantidad" Placeholder="Cantidad" Keyboard="Numeric" Grid.Row="2"/>
+                </Grid>
+            </ScrollView>           
             <Button x:Name="btnCargarPedido" Text="Cargar pedido" Clicked="btnCargarPedido_Clicked"/>
             <Button x:Name="btnActualizarPedido" Text="Actualizar pedido" Clicked="btnActualizarPedido_Clicked" IsVisible="False"/>
             <Button x:Name="btnEliminarPedido" Text="Borrar pedido" Clicked="btnEliminarPedido_Clicked" IsVisible="False"/>

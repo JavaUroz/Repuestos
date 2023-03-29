@@ -7,21 +7,18 @@
              x:Class="Repuestos.HomePage"
              Title="Clientes">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical">
-            <Frame Margin = "10" Padding="24" CornerRadius="10">
-                <Image Source="Repuestos.jpg" />
-            </Frame>
-            <ScrollView>
+        <StackLayout Orientation="Vertical">            
+            <ScrollView HeightRequest="2000">
                 <Grid>
-                    <Entry x:Name="txtIdCliente" IsVisible="False" Grid.Row="0"/>
-                    <Entry x:Name="txtNombre" Placeholder="Nombre" Grid.Row="1"/>
-                    <Entry x:Name="txtApellido" Placeholder="Apellido" Grid.Row="2"/>
-                    <Entry x:Name="txtCuit" Placeholder="Cuit sin guiones" Keyboard="Numeric" Grid.Row="3"/>
-                    <Entry x:Name="txtRazonSocial" Placeholder="Firma/Razón social" Grid.Row="4"/>
-                    <Entry x:Name="txtTelefono" Placeholder="Teléfono/Celular"  Keyboard="Telephone" Grid.Row="5"/>
-                    <Entry x:Name="txtEmail" Placeholder="Email" Keyboard="Email" Grid.Row="6"/>
-                    <Entry x:Name="txtLocalidad" Placeholder="Localidad" Grid.Row="7"/>
-                    <Entry x:Name="txtVendedor" Placeholder="Vendedor/Concesionario" Grid.Row="8"/>
+                    <Entry x:Name="txtIdCliente" IsVisible="False"/>
+                    <Entry x:Name="txtNombre" Placeholder="Nombre" Grid.Row="0"/>
+                    <Entry x:Name="txtApellido" Placeholder="Apellido" Grid.Row="1"/>
+                    <Entry x:Name="txtCuit" Placeholder="Cuit sin guiones" Keyboard="Numeric" Grid.Row="2"/>
+                    <Entry x:Name="txtRazonSocial" Placeholder="Firma/Razón social" Grid.Row="3"/>
+                    <Entry x:Name="txtTelefono" Placeholder="Teléfono/Celular"  Keyboard="Telephone" Grid.Row="4"/>
+                    <Entry x:Name="txtEmail" Placeholder="Email" Keyboard="Email" Grid.Row="5"/>
+                    <Entry x:Name="txtLocalidad" Placeholder="Localidad" Grid.Row="6"/>
+                    <Entry x:Name="txtVendedor" Placeholder="Vendedor/Concesionario" Grid.Row="7"/>
                 </Grid>
             </ScrollView>
             <Button x:Name="btnRegistrar" Text="Cargar cliente" Clicked="btnRegistrar_Clicked" Grid.Row="9"/>
@@ -48,6 +45,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Frame Margin = "10" Padding="24" CornerRadius="10">
+                <Image Source="Repuestos.jpg" />
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

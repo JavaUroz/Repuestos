@@ -76,25 +76,35 @@ namespace Repuestos
             {
                 await DisplayAlert("Advertencia", "Ingrese todos los datos", "OK");
             }
+            LlenarDatos();
         }
         private async void btnActualizarPedido_Clicked(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtCantidad.Text))
+            try
             {
-                Order order = new Order()
-                {                    
-                    IdOrder = Convert.ToInt32(txtIdOrder.Text),
-                    Cliente = lstClientes.Items[lstClientes.SelectedIndex],
-                    Producto = lstProductos.Items[lstProductos.SelectedIndex],
-                    Cantidad = Convert.ToInt32(txtCantidad.Text),
-                };
-                await App.SQLiteDBOrders.SaveOrderAsync(order);
-                await DisplayAlert("Registro", "Se actualizo de manera exitosa el pedido", "Ok");
-                LimpiarControles();
-                btnActualizarPedido.IsVisible = false;
-                btnCargarPedido.IsVisible = true;
-                LlenarDatos();
+                if (!string.IsNullOrEmpty(txtCantidad.Text))
+                {
+                    Order order = new Order()
+                    {
+                        IdOrder = Convert.ToInt32(txtIdOrder.Text),
+                        Cliente = lstClientes.Items[lstClientes.SelectedIndex],
+                        Producto = lstProductos.Items[lstProductos.SelectedIndex],
+                        Cantidad = Convert.ToInt32(txtCantidad.Text),
+                    };
+                    await App.SQLiteDBOrders.SaveOrderAsync(order);
+                    await DisplayAlert("Registro", "Se actualizo de manera exitosa el pedido", "Ok");
+                    LlenarDatos();
+                    LimpiarControles();
+                    btnActualizarPedido.IsVisible = false;
+                    btnEliminarPedido.IsVisible = false;
+                    btnCargarPedido.IsVisible = true;
+                }
             }
+            catch
+            {
+                await DisplayAlert("Pedido", "Complete todos los campos antes de Actualizar el pedido!", "Ok");                
+            }
+            
         }
         private async void lstPedidos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {

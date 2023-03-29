@@ -99,6 +99,7 @@ namespace Repuestos
             {
                 await DisplayAlert("Advertencia", "Ingrese todos los datos", "OK");
             }
+            LlenarDatos();
         }
         private async void btnActualizar_Clicked(object sender, EventArgs e)
         {
@@ -118,10 +119,11 @@ namespace Repuestos
                 };
                 await App.SQLiteDBClient.SaveClienteAsync(cliente);
                 await DisplayAlert("Registro", "Se actualizo de manera exitosa el cliente", "Ok");
+                LlenarDatos();
                 LimpiarControles();
                 btnActualizar.IsVisible = false;
-                btnRegistrar.IsVisible = true;
-                LlenarDatos();
+                btnEliminar.IsVisible = false;
+                btnRegistrar.IsVisible = true;                
             }
         }
         private async void lstClientes_ItemSelected(object sender, SelectedItemChangedEventArgs e)

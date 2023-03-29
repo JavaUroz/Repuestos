@@ -77,6 +77,7 @@ namespace Repuestos
             {
                 await DisplayAlert("Advertencia", "Ingrese todos los datos", "OK");
             }
+            LlenarDatos();
         }
         private async void btnActualizar_Clicked(object sender, EventArgs e)
         {
@@ -92,10 +93,11 @@ namespace Repuestos
                     };
                     await App.SQLiteDBProduct.SaveProductoAsync(producto);
                     await DisplayAlert("Registro", "Se actualizo de manera exitosa el repuesto", "Ok");
+                    LlenarDatos();
                     LimpiarControles();
                     btnActualizar.IsVisible = false;
-                    btnCargar.IsVisible = true;
-                    LlenarDatos();
+                    btnEliminar.IsVisible = false;
+                    btnCargar.IsVisible = true;                    
                 }
             }
         }
