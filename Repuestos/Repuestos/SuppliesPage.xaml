@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"              
+             mc:Ignorable="d"
+             x:Class="Repuestos.SuppliesPage"
+             Title="Repuestos">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Frame Margin = "10" Padding="24" CornerRadius="10">
+                <Image Source="Supplies.jpg" />
+            </Frame>
+            <ScrollView>
+                <Grid>
+                    <Entry x:Name="txtIdProducto" IsVisible="False" Grid.Row="0"/>
+                    <Entry x:Name="txtCodigo" Placeholder="Código" Grid.Row="1"/>
+                    <Entry x:Name="txtDescripcion" Placeholder="Descripción" Grid.Row="2"/>                    
+                    <Entry x:Name="txtPrecio" Keyboard="Numeric" Placeholder="Precio Unitario" Grid.Row="3"/>                    
+                </Grid>
+            </ScrollView>
+            <Button x:Name="btnCargar" Text="Cargar respuesto" Clicked="btnCargar_Clicked" Grid.Row="9"/>
+            <Button x:Name="btnActualizar" Text="Actualizar" Clicked="btnActualizar_Clicked" IsVisible="False"/>
+            <Button x:Name="btnEliminar" Text="Eliminar" Clicked="btnEliminar_Clicked" IsVisible="False"/>
+            <ListView x:Name="lstRepuestos" ItemSelected="lstRepuestos_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding CodigoProducto}" Grid.Row="0" Grid.Column="0" TextColor="#373737"/>
+                                <Label Text="{Binding DescripcionProducto}" Grid.Row="0" Grid.Column="1" TextColor="#373737"/>
+                                <Label Text="{Binding PrecioProducto}" Grid.Row="0" Grid.Column="2" TextColor="#373737"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>        
+    </ContentPage.Content>
+</ContentPage>

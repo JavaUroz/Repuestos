@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"              
+             mc:Ignorable="d"
+             x:Class="Repuestos.OrderPage"
+             Title="Pedido">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Frame Margin = "10" Padding="24" CornerRadius="10">
+                <Image Source="Orders.png" />
+            </Frame>
+            <Entry x:Name="txtIdOrder" IsVisible="False"/>
+            <Picker x:Name="lstClientes" FontSize="18" Title="Cliente" ItemsSource="{Binding Client}" ItemDisplayBinding="{Binding RazonSocial}"/>
+            <Picker x:Name="lstProductos" FontSize="18" Title="Producto" ItemsSource="{Binding Product}" ItemDisplayBinding="{Binding DescripcionProducto}"/>
+            <Entry x:Name="txtCantidad" Placeholder="Cantidad" Keyboard="Numeric"/>
+            <Button x:Name="btnCargarPedido" Text="Cargar pedido" Clicked="btnCargarPedido_Clicked"/>
+            <Button x:Name="btnActualizarPedido" Text="Actualizar pedido" Clicked="btnActualizarPedido_Clicked" IsVisible="False"/>
+            <Button x:Name="btnEliminarPedido" Text="Borrar pedido" Clicked="btnEliminarPedido_Clicked" IsVisible="False"/>
+            <ListView x:Name="lstPedidos" ItemSelected="lstPedidos_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Cliente}" Grid.Row="0" Grid.Column="0" TextColor="#373737"/>
+                                <Label Text="{Binding Producto}" Grid.Row="0" Grid.Column="1" TextColor="#373737"/>
+                                <Label Text="{Binding Cantidad}" Grid.Row="0" Grid.Column="2" TextColor="#373737"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"              
+             mc:Ignorable="d"
+             x:Class="Repuestos.HomePage"
+             Title="Clientes">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Frame Margin = "10" Padding="24" CornerRadius="10">
+                <Image Source="Repuestos.jpg" />
+            </Frame>
+            <ScrollView>
+                <Grid>
+                    <Entry x:Name="txtIdCliente" IsVisible="False" Grid.Row="0"/>
+                    <Entry x:Name="txtNombre" Placeholder="Nombre" Grid.Row="1"/>
+                    <Entry x:Name="txtApellido" Placeholder="Apellido" Grid.Row="2"/>
+                    <Entry x:Name="txtCuit" Placeholder="Cuit sin guiones" Keyboard="Numeric" Grid.Row="3"/>
+                    <Entry x:Name="txtRazonSocial" Placeholder="Firma/Razón social" Grid.Row="4"/>
+                    <Entry x:Name="txtTelefono" Placeholder="Teléfono/Celular"  Keyboard="Telephone" Grid.Row="5"/>
+                    <Entry x:Name="txtEmail" Placeholder="Email" Keyboard="Email" Grid.Row="6"/>
+                    <Entry x:Name="txtLocalidad" Placeholder="Localidad" Grid.Row="7"/>
+                    <Entry x:Name="txtVendedor" Placeholder="Vendedor/Concesionario" Grid.Row="8"/>
+                </Grid>
+            </ScrollView>
+            <Button x:Name="btnRegistrar" Text="Cargar cliente" Clicked="btnRegistrar_Clicked" Grid.Row="9"/>
+            <Button x:Name="btnActualizar" Text="Actualizar" Clicked="btnActualizar_Clicked" IsVisible="False"/>
+            <Button x:Name="btnEliminar" Text="Eliminar" Clicked="btnEliminar_Clicked" IsVisible="False"/>
+            <ListView x:Name="lstClientes" ItemSelected="lstClientes_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>                            
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding CuitCliente}" Grid.Row="0" Grid.Column="0" TextColor="#373737"/>
+                                <Label Text="{Binding RazonSocial}" Grid.Row="0" Grid.Column="1" TextColor="#373737"/>
+                                <Label Text="{Binding Vendedor}" Grid.Row="0" Grid.Column="2" TextColor="#373737"/>
+                            </Grid>                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
